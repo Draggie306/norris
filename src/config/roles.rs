@@ -20,7 +20,7 @@ pub struct RolesConfig {
 
 impl RolesConfig {
     /// The IDs of all [`Role`]s that can be granted by the bot during the registration process.
-    pub fn roles_needing_registration(&self) -> [RoleId; 16] {
+    pub fn roles_needing_registration(&self) -> [RoleId; 17] {
         [
             // Hierarchy and user kind roles
             self.hierarchy.undergrad_role_id,
@@ -41,6 +41,7 @@ impl RolesConfig {
             self.housing.jc_self_catered_role_id,
             self.housing.up_self_catered_role_id,
             self.housing.private_house_role_id,
+            self.housing.commuter_role_id,
         ]
     }
 
@@ -119,4 +120,6 @@ pub struct HousingRolesConfig {
     pub up_self_catered_role_id: RoleId,
     /// The ID of the role for private housing.
     pub private_house_role_id: RoleId,
+    /// The ID of the role for people who commute from further afield
+    pub commuter_role_id: RoleId,
 }

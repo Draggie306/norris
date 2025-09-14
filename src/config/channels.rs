@@ -18,6 +18,8 @@ pub struct ChannelsConfig {
     pub nickname_channel_id: ChannelId,
     /// Undergraduate-only channel configuration data.
     pub undergrad: UndergradChannelsConfig,
+    /// The ID of the channel where the instructions are posted
+    pub instructions_channel_id: ChannelId,
 }
 
 
