@@ -32,8 +32,6 @@
 
 - `/count undergrads` - Report the number of registered and total undergraduate students
 
-- `/count postgrads` - Report the number of registered and total postgraduate students
-
 ## User data
 
 **Norris** only stores the minimum amount of user data required to perform registration, as seen in its [database schema](docs/database-schema.png).
