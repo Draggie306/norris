@@ -96,7 +96,8 @@ You will need to install toolchains and software for the relevant language to de
 You will therefore need to install one if you are planning to develop and test **Norris** on your local machine (i.e. not on a University-provided virtual machine).
 
 > [!CAUTION]
-> Use your local database only for testing. Do not store student data on your machine.
+> In an ideal world, you would use your local database only for testing. However, if the university is unable to provide a server to run norris on, then it is acceptable to use it in production.
+> If you use your local database in production, you must take reasonable security measures (such as implementing a firewall) to ensure that it can only be accessed by authorised entities.
 
 <details>
 <summary>Setting up a local MySQL database</summary>
