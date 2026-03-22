@@ -13,24 +13,24 @@ Use the table of contents icon on the top-right corner of this document to jump 
 
 ### Navigating the repository
 
-**Norris** follows a simple repository structure, consisting of three core branches (`main`, `dev`, and `docs`) and any number of additional branches for new features, pull requests, and so on.
+**Norris** follows a simple repository structure, consisting of three core branches (`main`, `python-dev`, and `docs`) and any number of additional branches for new features, pull requests, and so on.
 
 <details>
 <summary>Branch structure</summary>
 
-- `main` is the main (default) branch, meant for stable release versions of **Norris**.
+- `main` is the main (default) branch, meant for stable release versions of **Norris**. It currently contains the latest stable rust version of the bot.
 
     > [!TIP]
     > Avoid committing directly to `main`. You should instead commit to another relevant branch and merge into it once finished.
 
-- `dev` is the core development branch, where most development occurs, and is intended to be merged into `main` after thorough reviews and testing.
+- `python-dev` is the python development branch, for the python version of the bot.
 
     > [!NOTE]
-    > There is also another development branch, `riir`, used for developing the Rust version of **Norris**. Like `dev`, this is intended to be merged into `main` after all changes are approved.
+    > There is also another development branch, `riir`, used for developing the Rust version of **Norris**. This is intended to be merged into `main` after all changes are approved.
 
 - `docs` is the branch for external documentation (i.e. *not* inline comment-based documentation) such as [design documents and diagrams](docs/), and is also intended to be merged into `main` after reviews.
 
-- Other branches typically branch out from `dev` or `main`, and may be merged back into their source (`dev` or `main`) when necessary.
+- Other branches typically branch out from `python-dev` or `main`, and may be merged back into their source (`python-dev` or `main`) when necessary.
 
 </details>
 
