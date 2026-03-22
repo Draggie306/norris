@@ -56,8 +56,8 @@ Additionally, access to user data via the database is limited to server administ
 ## Credits
 
 Thanks to:
-- [Joe Sieniawski](https://github.com/jozefws) and the University of Nottingham Computer Science Research Support Team, for providing a database and server to host **Norris** on
-- [Ben Flynn](https://github.com/Ben5656), for providing the previous year's codebase, which served as a foundation for the current bot
+- [Joe Sieniawski](https://github.com/jozefws) and the University of Nottingham Computer Science Research Support Team, for providing a database and server to host **Norris** on in the beginning
+- [Ben Flynn](https://github.com/Ben5656), for providing the previous codebase, which served as a foundation for the current bot
 
 ## Frequently asked questions
 
