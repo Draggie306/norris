@@ -240,23 +240,17 @@ Most of this data is kept around and used throughout its runtime.
 
     - `nickname-channel-id` - the ID of the channel where nickname requests will be posted for mentors to handle (aka `#nickname-queue`)
 
+    - `instructions-channel-id` - the ID of the channel where the instructions for registration will be posted (aka `#instructions`)
+
     - `undergrad`
 
         - `main-channel-id` - the ID of the main undergraduate channel containing both students and staff (aka `#atrium-chatter`)
-
-    - `postgrad`
-
-        - `main-channel-id` - the ID of the main postgraduate channel containing both students and staff (aka `#postgrad-atrium`)
-
-        - `common-channel-id` - the ID of the student-only postgraduate channel (aka `#postgrad-common-chatter`)
 
 - `roles`
 
     - `hierarchy`
 
         - `undergrad-role-id` - the ID of the role for undergraduate students
-
-        - `postgrad-role-id` - the ID of the role for postgraduate students
 
         - `mentor-role-id` - the ID of the role for mentors
 
@@ -294,6 +288,8 @@ Most of this data is kept around and used throughout its runtime.
 
         - `private-house-role-id` - the ID of the role for private housing
 
+        - `commuter-role-id` - the ID of the role for commuters
+
 </details>
 
 <details>
@@ -310,17 +306,13 @@ arrival-channel-id = 1234567890987654321
 support-channel-id = 1234567890987654321
 log-channel-id = 1234567890987654321
 nickname-channel-id = 1234567890987654321
+instructions-channel-id = 1234567890987654321
 
 [channels.undergrad]
 main-channel-id = 1234567890987654321
 
-[channels.postgrad]
-main-channel-id = 1234567890987654321
-common-channel-id = 1234567890987654321
-
 [roles.hierarchy]
 undergrad-role-id = 1234567890987654321
-postgrad-role-id = 1234567890987654321
 mentor-role-id = 1234567890987654321
 senior-mentor-role-id = 1234567890987654321
 honorary-mentor-role-id = 1234567890987654321
@@ -341,6 +333,7 @@ jc-self-catered-role-id = 1234567890987654321
 up-catered-role-id = 1234567890987654321
 up-self-catered-role-id = 1234567890987654321
 private-house-role-id = 1234567890987654321
+commuter-role-id = 1234567890987654321
 ```
 
 </details>

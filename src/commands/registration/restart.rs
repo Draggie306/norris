@@ -80,7 +80,7 @@ pub(super) async fn restart_registration(
         context.data(),
         |message| {
             message
-                .embed(embeds::registration::instructions(user_id))
+                .embed(embeds::registration::instructions(user_id, context.data().channels.instructions_channel_id))
                 .components(components::instructions_continue_button())
         },
     )

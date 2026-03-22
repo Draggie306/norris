@@ -15,15 +15,17 @@ use serenity::{
 use crate::prelude::*;
 
 /// Embed builder for displaying registration instructions to a [`User`].
-pub fn instructions(user_id: UserId) -> impl FnOnce(&mut CreateEmbed) -> &mut CreateEmbed {
+pub fn instructions(user_id: UserId, instructions_channel_id: ChannelId) -> impl FnOnce(&mut CreateEmbed) -> &mut CreateEmbed {
     move |embed| {
         embed
             .title("Registration")
             .colour(BLURPLE)
             .description(format!(
                 "Welcome to the **University of Nottingham Computer Science** server, <@{}>! \
-                 We'll need a couple of details from you in order to get you set up.",
+                 We'll need a couple of details from you in order to get you set up. \
+                 Please read the <#{}> before continuing.",
                 user_id,
+                instructions_channel_id,
             ))
             .timestamp(Utc::now())
     }
