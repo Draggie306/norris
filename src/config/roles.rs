@@ -24,7 +24,6 @@ impl RolesConfig {
         [
             // Hierarchy and user kind roles
             self.hierarchy.undergrad_role_id,
-            self.hierarchy.postgrad_role_id,
             self.hierarchy.mentor_role_id,
             self.hierarchy.senior_mentor_role_id,
             self.hierarchy.honorary_mentor_role_id,
@@ -42,16 +41,16 @@ impl RolesConfig {
             self.housing.jc_self_catered_role_id,
             self.housing.up_self_catered_role_id,
             self.housing.private_house_role_id,
+            self.housing.commuter_role_id,
         ]
     }
 
     /// The IDs of all roles whose members can be nuked as part of [`nuke`] testing.
     ///
     /// [`nuke`]: crate::commands::registration::nuke
-    pub fn nukable_roles(&self) -> [RoleId; 2] {
+    pub fn nukable_roles(&self) -> [RoleId; 1] {
         [
             self.hierarchy.undergrad_role_id,
-            self.hierarchy.postgrad_role_id,
         ]
     }
 }
@@ -62,8 +61,6 @@ impl RolesConfig {
 pub struct HierarchyRolesConfig {
     /// The ID of the role given to undergraduates.
     pub undergrad_role_id: RoleId,
-    /// The ID of the role given to postgraduates.
-    pub postgrad_role_id: RoleId,
     /// The ID of the role given to mentors.
     pub mentor_role_id: RoleId,
     /// The ID of the role given to senior mentors.
@@ -83,7 +80,6 @@ impl HierarchyRolesConfig {
     pub fn role(&self, kind: VerifiedUserKind) -> RoleId {
         match kind {
             VerifiedUserKind::Undergrad => self.undergrad_role_id,
-            VerifiedUserKind::Postgrad => self.postgrad_role_id,
             VerifiedUserKind::Mentor => self.mentor_role_id,
             VerifiedUserKind::SeniorMentor => self.senior_mentor_role_id,
             VerifiedUserKind::HonoraryMentor => self.honorary_mentor_role_id,
@@ -124,4 +120,6 @@ pub struct HousingRolesConfig {
     pub up_self_catered_role_id: RoleId,
     /// The ID of the role for private housing.
     pub private_house_role_id: RoleId,
+    /// The ID of the role for people who commute from further afield
+    pub commuter_role_id: RoleId,
 }

@@ -33,7 +33,7 @@ pub async fn guild_member_added(
     // Try to send instructions for registration to the user and notify them
     try_send_instructions(context, member, bot_data, |message| {
         message
-            .embed(embeds::registration::instructions(member.user.id))
+            .embed(embeds::registration::instructions(member.user.id, bot_data.channels.instructions_channel_id))
             .components(components::instructions_continue_button())
     })
     .await
