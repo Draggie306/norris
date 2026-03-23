@@ -198,6 +198,11 @@ pub const HOUSING_UP_SELF_CATERED: &str = "housing-up-self-catered";
 /// See [`housing_buttons`].
 pub const HOUSING_PRIVATE: &str = "housing-private";
 
+/// The ID of the `Commuter` housing button.
+///
+/// See [`housing_buttons`].
+pub const HOUSING_COMMUTER: &str = "housing-commuter";
+
 /// The ID of the `Skip` button for housing.
 ///
 /// See [`housing_buttons`].
@@ -205,7 +210,7 @@ pub const HOUSING_SKIP: &str = "housing-skip";
 
 /// Buttons for selecting (or skipping) housing.
 ///
-/// See [`HOUSING_JC_CATERED`], [`HOUSING_JC_SELF_CATERED`], [`HOUSING_UP_CATERED`], [`HOUSING_UP_SELF_CATERED`], [`HOUSING_PRIVATE`], and [`HOUSING_SKIP`].
+/// See [`HOUSING_JC_CATERED`], [`HOUSING_JC_SELF_CATERED`], [`HOUSING_UP_CATERED`], [`HOUSING_UP_SELF_CATERED`], [`HOUSING_PRIVATE`], [`HOUSING_COMMUTER`] and [`HOUSING_SKIP`].
 pub fn housing_buttons() -> impl FnOnce(&mut CreateComponents) -> &mut CreateComponents {
     |comp| {
         comp.create_action_row(|row| {
@@ -239,9 +244,16 @@ pub fn housing_buttons() -> impl FnOnce(&mut CreateComponents) -> &mut CreateCom
                     .custom_id(HOUSING_PRIVATE)
                     .style(ButtonStyle::Primary)
             })
+            
         })
         .create_action_row(|row| {
             row.create_button(|button| {
+                button
+                    .label("Commuter")
+                    .custom_id(HOUSING_COMMUTER)
+                    .style(ButtonStyle::Primary)
+            })
+            .create_button(|button| {
                 button
                     .label("Skip")
                     .custom_id(HOUSING_SKIP)
