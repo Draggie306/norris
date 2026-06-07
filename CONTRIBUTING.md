@@ -13,7 +13,7 @@ Use the table of contents icon on the top-right corner of this document to jump 
 
 ### Navigating the repository
 
-**Norris** follows a simple repository structure, consisting of three core branches (`main`, `python-dev`, and `docs`) and any number of additional branches for new features, pull requests, and so on.
+**Norris** follows a simple repository structure, consisting of four core branches (`main`, `rust-dev`, `python-dev`, and `docs`) and any number of additional branches for new features, pull requests, and so on.
 
 <details>
 <summary>Branch structure</summary>
@@ -26,7 +26,7 @@ Use the table of contents icon on the top-right corner of this document to jump 
 - `python-dev` is the python development branch, for the python version of the bot.
 
     > [!NOTE]
-    > There is also another development branch, `riir`, used for developing the Rust version of **Norris**. This is intended to be merged into `main` after all changes are approved.
+    > There is also another development branch, `rust-dev`, used for developing the Rust version of **Norris**. This is intended to be merged into `main` after all changes are tested (typically by deploying it into a discord server and testing the pathways manually).
 
 - `docs` is the branch for external documentation (i.e. *not* inline comment-based documentation) such as [design documents and diagrams](docs/), and is also intended to be merged into `main` after reviews.
 
