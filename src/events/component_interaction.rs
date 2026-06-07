@@ -91,7 +91,8 @@ pub async fn message_component_interacted(
             | components::HOUSING_UP_CATERED
             | components::HOUSING_JC_SELF_CATERED
             | components::HOUSING_UP_SELF_CATERED
-            | components::HOUSING_PRIVATE),
+            | components::HOUSING_PRIVATE
+            | components::HOUSING_COMMUTER),
             Some(RegistrationStatus::PronounsPicked),
         ) => housing::housing_clicked(context, component_interaction, bot_data, housing).await,
         // User has picked or skipped pronouns and does not want to pick housing

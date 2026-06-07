@@ -28,7 +28,7 @@ pub async fn nuke(
         .members_iter(context.http())
         .try_filter(|member| future::ready(can_nuke_member(member, &nukable_roles)))
         .map_err(BotError::from)
-        // TODO: Figure out a better limit or spawn separate tasks, see https://github.com/Carnagion/norris/issues/2 and https://github.com/Carnagion/norris/issues/4
+        // If nuking becomes unbearably slow again in future then figure out a better limit or spawn separate tasks, see https://github.com/Carnagion/norris/issues/2
         .try_for_each_concurrent(10, |mut member| async move {
             super::restart::restart_registration(context, &mut member).await
         })

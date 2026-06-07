@@ -26,6 +26,7 @@ pub async fn housing_clicked(
         components::HOUSING_UP_CATERED => housing_config.up_catered_role_id,
         components::HOUSING_JC_SELF_CATERED => housing_config.jc_self_catered_role_id,
         components::HOUSING_UP_SELF_CATERED => housing_config.up_self_catered_role_id,
+        components::HOUSING_COMMUTER => housing_config.commuter_role_id,
         components::HOUSING_PRIVATE => housing_config.private_house_role_id,
         _ => unreachable!(), // PANICS: This function is only called with one of the above housing as input
     };
