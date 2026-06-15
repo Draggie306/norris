@@ -1,6 +1,7 @@
 name: Run Rust workflows
 
 on:
+    workflow_dispatch:
     push:
         paths: ["**.rs", "Cargo.toml", "Cargo.lock", ".sqlx/**", "rustfmt.toml", ".github/workflows/**"]
     pull_request:
