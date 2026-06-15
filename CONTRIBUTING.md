@@ -61,7 +61,7 @@ You will need to install toolchains and software for the relevant language to de
 1. Install the latest version of [Rust](https://www.rust-lang.org/tools/install), preferably using `rustup`.
 
     > [!TIP]
-    > If you're setting this up with linux, use `sudo snap install rustup --classic` to install `rustup`, and then use `rustup` to install Rust
+    > If you're setting this up with Linux, use `sudo snap install rustup --classic` to install `rustup`, and then use `rustup` to install Rust
 
     > [!TIP]
     > You should preferably install the `default` profile (as the name suggests, this is picked by default), which includes all the necessary components for general Rust development.
@@ -103,6 +103,8 @@ You will therefore need to install one if you are planning to develop and test *
 <summary>Setting up a local MySQL database</summary>
 
 1. Download and install the [MySQL Community Server](https://dev.mysql.com/downloads/mysql).
+
+    > If using an ARM64 device, such as a Raspberry Pi 5, MariaDB can be used with `sudo apt install mariadb-server mariadb-client`, `sudo systemctl enable --now mariadb` and running `sudo mysql_secure_installation`
 
 2. Launch the MySQL client and create a new database.
 

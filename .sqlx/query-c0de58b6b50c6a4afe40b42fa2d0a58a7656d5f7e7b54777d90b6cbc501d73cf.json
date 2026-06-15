@@ -38,7 +38,7 @@
         "name": "registered_user_id",
         "type_info": {
           "type": "LongLong",
-          "flags": "UNSIGNED",
+          "flags": "MULTIPLE_KEY | UNSIGNED",
           "char_set": 63,
           "max_size": 20
         }
