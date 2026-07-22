@@ -1,11 +1,25 @@
-FROM rust:1.75 AS builder
-RUN apt-get update && apt-get install -y musl-tools
-RUN rustup target add x86_64-unknown-linux-musl
-WORKDIR /app
-COPY . ./
-RUN cargo build --release --target x86_64-unknown-linux-musl
+# syntax=docker/dockerfile:1
 
-FROM alpine:latest
+FROM rust:1.97.1-alpine3.24 AS builder
+
 WORKDIR /app
-COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/norris ./
+
+# Norris CI settings -- already uses offline mode SQLx! 
+ENV SQLX_OFFLINE=true
+
+
+COPY . .
+
+RUN cargo build \
+    --release \
+    --locked
+
+
+
+FROM alpine:3.24
+
+WORKDIR /app
+
+COPY --from=builder /app/target/release/norris ./norris
+
 CMD ["./norris"]
