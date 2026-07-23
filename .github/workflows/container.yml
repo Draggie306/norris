@@ -61,5 +61,5 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha,scope=norris
-          cache-to: type=gha,scope=norris,mode=max,ignore-error=true
+          cache-from: type=gha,scope=norris_v2
+          cache-to: type=gha,scope=norris_v2,mode=max,ignore-error=true
