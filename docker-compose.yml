@@ -3,13 +3,13 @@ volumes:
 
 services:
   norris:
-    image: Carnagion/norris:latest
+    image: ghcr.io/draggie306/norris:latest
     container_name: norris
     restart: always
     networks:
       - default
     volumes:
-      - /path/to/norris.toml:/app/norris.toml
+      - ./norris.toml:/app/norris.toml
     depends_on:
       - norrisdb
   norrisdb:
@@ -26,4 +26,4 @@ services:
       - default
     volumes:
       - norrisdb_data:/var/lib/mysql
-      - /path/to/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
