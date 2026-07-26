@@ -99,12 +99,17 @@ pub async fn skip_clicked(
     // Inform the user of completion
     component_interaction
         .create_followup_message(&context.http, |message| {
-            message.embed(embeds::registration::finished(bot_data.channels.undergrad.main_channel_id))
+            message.embed(embeds::registration::finished(
+                bot_data.channels.undergrad.main_channel_id,
+            ))
         })
         .await?;
 
     // Welcome the user
-    bot_data.channels.undergrad.main_channel_id
+    bot_data
+        .channels
+        .undergrad
+        .main_channel_id
         .send_message(&context.http, |message| {
             message.embed(embeds::registration::welcome(user_id))
         })

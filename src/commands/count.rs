@@ -5,7 +5,6 @@ use crate::prelude::*;
 mod undergrads;
 pub use undergrads::undergrads;
 
-
 /// Get student counts.
 #[poise::command(slash_command, subcommands("undergrads"), guild_only)]
 pub async fn count(_: BotContext<'_>) -> BotResult<()> {
