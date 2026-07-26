@@ -22,8 +22,6 @@ pub struct ChannelsConfig {
     pub instructions_channel_id: ChannelId,
 }
 
-
-
 /// Configuration data for undergraduate-only [`Channel`]s.
 #[derive(Clone, Copy, Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(rename_all = "kebab-case")]

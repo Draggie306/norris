@@ -244,7 +244,6 @@ pub fn housing_buttons() -> impl FnOnce(&mut CreateComponents) -> &mut CreateCom
                     .custom_id(HOUSING_PRIVATE)
                     .style(ButtonStyle::Primary)
             })
-            
         })
         .create_action_row(|row| {
             row.create_button(|button| {

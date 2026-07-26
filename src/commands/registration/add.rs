@@ -42,7 +42,7 @@ pub enum StudentKind {
     /// An undergraduate student.
     #[default]
     #[name = "Undergraduate"]
-    Undergrad
+    Undergrad,
 }
 
 impl From<StudentKind> for VerifiedUserKind {

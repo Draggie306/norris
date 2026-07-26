@@ -104,7 +104,10 @@ pub async fn skip_clicked(
         .await?;
 
     // Welcome the user
-    bot_data.channels.undergrad.main_channel_id
+    bot_data
+        .channels
+        .undergrad
+        .main_channel_id
         .send_message(&context.http, |message| {
             message.embed(embeds::registration::welcome(user_id))
         })

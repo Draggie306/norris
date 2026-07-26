@@ -49,9 +49,7 @@ impl RolesConfig {
     ///
     /// [`nuke`]: crate::commands::registration::nuke
     pub fn nukable_roles(&self) -> [RoleId; 1] {
-        [
-            self.hierarchy.undergrad_role_id,
-        ]
+        [self.hierarchy.undergrad_role_id]
     }
 }
 
