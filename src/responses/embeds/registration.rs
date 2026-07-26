@@ -16,7 +16,7 @@ use crate::prelude::*;
 
 /// Embed builder for displaying registration instructions to a [`User`].
 pub fn instructions(
-    user_id: UserId, 
+    user_id: UserId,
     instructions_channel_id: ChannelId,
 ) -> impl FnOnce(&mut CreateEmbed) -> &mut CreateEmbed {
     move |embed| {
