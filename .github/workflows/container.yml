@@ -53,6 +53,32 @@ jobs:
             org.opencontainers.image.description=Registration bot for the University of Nottingham's School of Computer Science servers. 
             org.opencontainers.image.source=https://github.com/Draggie306/norris
 
+      - name: Generate database image metadata
+        id: db-meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/draggie306/norris-db
+          tags: |
+            type=ref,event=tag
+            type=sha,prefix=sha-
+            type=raw,value=latest,enable={{is_default_branch}}
+          labels: |
+            org.opencontainers.image.title=Norris's database
+            org.opencontainers.image.description=MySQL db containing the initial schema for Norris, the University of Nottingham's Computer Science registration bot.
+            org.opencontainers.image.source=https://github.com/Draggie306/norris
+
+      - name: Build and publish database image
+        uses: docker/build-push-action@v7
+        with:
+          context: ./db
+          file: ./db/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.db-meta.outputs.tags }}
+          labels: ${{ steps.db-meta.outputs.labels }}
+          cache-from: type=gha,scope=norris-db-v2
+          cache-to: type=gha,scope=norris-db-v2,mode=max,ignore-error=true
+
       - name: Push and publish
         uses: docker/build-push-action@v7
         with:
