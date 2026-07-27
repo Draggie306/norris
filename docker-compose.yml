@@ -1,29 +1,40 @@
-volumes:
-  norrisdb_data:
-
 services:
   norris:
     image: ghcr.io/draggie306/norris:latest
     container_name: norris
-    restart: always
-    networks:
-      - default
-    volumes:
-      - ./norris.toml:/app/norris.toml
+    restart: unless-stopped
+
     depends_on:
-      - norrisdb
-  norrisdb:
-    image: mysql:8.0
-    container_name: norrisdb
-    restart: always
-    environment:
-      MYSQL_DATABASE: 'norrisdb'
-      MYSQL_USER: 'norris'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
-    command: --ssl=0
-    networks:
-      - default
+      norrisdb:
+        condition: service_healthy
+
     volumes:
-      - norrisdb_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - type: bind
+        source: ./norris.toml
+        target: /app/norris.toml
+        read_only: true
+        bind:
+          create_host_path: false
+  
+  norrisdb:
+    image: ghcr.io/draggie306/norris-db:latest
+    container_name: norrisdb
+    restart: unless-stopped
+
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:?Generate a .env file with a MYSQL_DATABASE variable!}
+      MYSQL_USER: ${MYSQL_USER:?Generate a .env file with a MYSQL_USER variable!}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Generate a .env file with a MYSQL_PASSWORD variable!}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Generate a .env file with a MYSQL_ROOT_PASSWORD variable!}
+    
+    command: --ssl=0
+    
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 --silent"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  norrisdb_data:
